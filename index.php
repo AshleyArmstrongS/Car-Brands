@@ -1,5 +1,5 @@
 <?php
-
+  define('SITE_BASE_DIR','/wp_ca3_Armstrong_Ashley')
   // Include the Rapid library
   require_once('lib/Rapid.php');
 
@@ -8,7 +8,7 @@
 
   // Define some routes. Here: requests to / will be
   // processed by the controller at controllers/Home.php
-
+  $app->GET('/', 'Home');
 
   // Process the request
   $app->dispatch();
