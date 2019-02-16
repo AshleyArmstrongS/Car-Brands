@@ -1,5 +1,5 @@
 <?php
-  define('SITE_BASE_DIR','/wp_ca3_Armstrong_Ashley')
+  define('SITE_BASE_DIR','/wp_ca3_Armstrong_Ashley');
   // Include the Rapid library
   require_once('lib/Rapid.php');
 
