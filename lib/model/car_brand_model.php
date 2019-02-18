@@ -1,5 +1,5 @@
 <?php
-class CarBrand {
+class CarBrandModel {
 private $brand_name;
 private $brand_status;
 private $establishment;
