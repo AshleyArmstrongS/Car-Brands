@@ -1,5 +1,5 @@
 <?php
-class CarBrandModel {
+class car_brand_model {
 private $brand_name;
 private $brand_status;
 private $establishment;
@@ -11,10 +11,13 @@ public function __construct($row){
     $this->establishment = $row['establishment'];
     $this->parent_company = $row['parent_company'];
 }
-public static createNew($args){
+public static function createNew($args){
 
     $database->prepare('INSERT INTO car_brand (brand_name, brand_status, establishment, parent_company) values()');
     $database->excecute([]);
+}
+public static function returnCar($db){
+    $db->query('select * from car_brand;');
 }
 }
 ?>

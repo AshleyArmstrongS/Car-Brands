@@ -4,3 +4,8 @@
 <input type='text' name='car'>
 <input type="submit" value='Submit'>
 </form>
+        <?php
+        foreach ($car_brand as $cars):
+            echo $cars["car_brand"], " ";
+            ?>
+<?php endforeach; ?>

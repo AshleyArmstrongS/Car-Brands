@@ -1,6 +1,6 @@
 <?php
-class CarModModel {
-private $brand_id;
+class car_m_model {
+private $_id;
 private $model_name;
 private $year_introduced;
 private $year_discontinued;
