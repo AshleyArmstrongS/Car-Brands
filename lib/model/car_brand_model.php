@@ -11,13 +11,12 @@ public function __construct($row){
     $this->establishment = $row['establishment'];
     $this->parent_company = $row['parent_company'];
 }
-public static function createNew($args){
-
-    $database->prepare('INSERT INTO car_brand (brand_name, brand_status, establishment, parent_company) values()');
-    $database->excecute([]);
-}
 public static function returnCar($db){
-    $db->query('select * from car_brand;');
+    $sc = 'select * from car_brand;';
+    $s = $db->prepare($sc);
+    $s->execute();  
+    $array = $s->fetchALL();
+    return $array;
 }
 }
 ?>

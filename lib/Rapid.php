@@ -73,6 +73,7 @@
   class RouteRedeclarationException     extends Exception {};
   class ControllerNotFoundException     extends Exception {};
   class RouteNotFoundException          extends Exception {};
+  class PDOException                    extends Exception {};
 
 
   ##########################################################

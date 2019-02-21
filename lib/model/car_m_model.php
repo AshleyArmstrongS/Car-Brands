@@ -1,6 +1,7 @@
 <?php
 class car_m_model {
 private $_id;
+private $brand_id;
 private $model_name;
 private $year_introduced;
 private $year_discontinued;
@@ -9,6 +10,7 @@ private $hybrid;
 private $fuel_type;
 
 public function __construct($row){
+    $this->id = $row['model_id'];
     $this->brand_id = $row['brand_id'];
     $this->model_name = $row['model_name'];
     $this->year_introduced = $row['year_introduced'];
