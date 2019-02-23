@@ -11,8 +11,8 @@
                     echo $cars["brand_net_worth"];
                     echo "</a></li> ";
                     ?>
-                    <li><form action="Car_Del">
-                            <input type='hidden' name='C_ID' value="<?php echo$cars["brand_id"] ?>" >              
+                    <li><form action="brand_del">
+                            <input type='hidden' name='brand_id' value="<?php echo$cars["brand_id"] ?>" >              
                             <input id="delete "name = "delete" type = "submit" value='delete'></li>
                         </form>   </li>    
         <?php endforeach; ?>
@@ -30,7 +30,7 @@
             <li>   <h4>body type: </h4><?php echo $models["body_type"]; ?></li>
             <li>   <h4>fueltype: </h4><?php echo $models["fuel_type"]; ?></li>
             <li>   <h4>hybrid: </h4><?php if($part["hybrid"]){ echo "YES";}else{echo "NO";}; ?></li> 
-            <li>   <form action="Model_Del">
+            <li>   <form action="model_del">
                   <input type='hidden' name='model_id' value="<?php echo$models["model_id"] ?>" >              
                 <input id="delete "name = "delete" type = "submit" value='delete'></li>
                 </form></li>

@@ -213,7 +213,6 @@ footer {
     float: left;
 }
 .form div div input, textArea, select{
-    float: right;
     width: 100%;      
     display: inline-block;
     border: none;
