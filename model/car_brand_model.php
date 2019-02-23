@@ -6,7 +6,6 @@
     private $parent_company;
 
     public function __construct($row){
-        $this->brand_id = $row['brand_id'],
         $this->brand_name = $row['brand_name'];
         $this->brand_status = $row['brand_status'];
         $this->establishment = $row['establishment'];

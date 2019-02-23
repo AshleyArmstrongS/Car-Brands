@@ -1,5 +1,5 @@
 <?php
-try{
+// try{
   $config = require('config.php');
   define('SITE_BASE_DIR', $config['app_base_url']);
   
@@ -18,17 +18,17 @@ try{
 
   // Process the request
   $app->dispatch();
-}
-catch(\Rapid\RouteNotFoundException $e){
-$e->getResponseObject()->render('main','404',[]);
-}
-catch (PDOException $e) {
-  $error_message = $e ->getMessage();
-    include("./templates/views/database_error.php");
-  exit();
-}
-catch(Exception $e){
-    http_response_code(500);
-  exit();
-}
+// }
+// catch(\Rapid\RouteNotFoundException $e){
+// $e->getResponseObject()->render('main','404',[]);
+// }
+// catch (PDOException $e) {
+//   $error_message = $e ->getMessage();
+//     include("./templates/views/database_error.php");
+//   exit();
+// }
+// catch(Exception $e){
+//     http_response_code(500);
+//   exit();
+// }
 ?>

@@ -20,7 +20,7 @@
         $this->fuel_type = $row['fuel_type'];
     }
     
-    public static function return brand_Model($db, $args){
+    public static function return_Brand_Model($db, $args){
         $statement_Select = 'SELECT * FROM car_model WHERE brand_id = :brand_id;';
         $sS = $db->prepare($statement_Select);
         $sS->bindValue(":brand_id", $args['brand_id']);
