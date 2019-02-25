@@ -32,10 +32,9 @@
         ]);  
     }
 
-    public static function delete_Brand($db, $args){
-        $statement_Delete = "DELETE FROM car_brand WHERE brand_id=:brand_id";
+    public static function delete_Brand($db, $brand){
+        $statement_Delete = "DELETE FROM car_brand WHERE brand_id=$brand";
         $sD = $db->prepare($statement_Delete);
-        $sD->bindValue(":brand_id", $args['brand_id']);
         $sD->execute();
     }
 

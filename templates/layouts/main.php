@@ -17,10 +17,10 @@ $title = defined('PAGE_TITLE') ? PAGE_TITLE : 'Car Brand Db';
                 <h1>Car Brands DB</h1>
                 <nav>
                     <ul>
-                        <li><a class='btn external' href='index.php'>Car Part Db</a></li>
-                        <li><a class='btn external' href='form.php'>Add Part</a></li>
-                        <li><a class='btn external' href='formCars.php'>Add Car</a></li>
-                        <li><a class='btn external' href='logPage.php'>Logs</a></li>
+                        <li><a class='btn external' href=''>Home</a></li>
+                        <li><a class='btn external' href='car_list'>List Brands</a></li>
+                        <li><a class='btn external' href='brand_add'>Add Brand</a></li>
+                        <li><a class='btn external' href='model_add'>Add Model</a></li>
                     </ul>
                 </nav>
             </div>

@@ -15,8 +15,11 @@
   $app->GET('/car_list', 'Car_List');
   $app->POST('/car_list', 'Car_List_Add');
   $app->GET('/brand_del', 'Car_Del');
-  $app->GET('/model_del', 'model_Del');
-  $app->GET('/car/(?<id>[0-9]{2})','');
+  $app->GET('/model_del','model_Del');
+  $app->GET('/brand_add','Brand_Add');
+  $app->POST('/brand_add','Brand_Add_P');
+  $app->GET('/model_add','Model_Add');
+  $app->POST('/model_add','Model_Add_P');
 
   // Process the request
   $app->dispatch();
