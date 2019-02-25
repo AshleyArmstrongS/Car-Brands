@@ -8,36 +8,27 @@
                 <?php } ?>
             <?php } ?>
             <div>
-            <?php foreach ($locals['car_brand'] as $brand_id): print_r($brand_id)?>
-            <label for='brand_id'>Choose Brand: </label>
-                <select name='brand' value='<?= $Brand['value'] ?>'>
-                    <option value="">Select...</option>
-                    <option name='stock' value='<?=$brand_id['brand_id']?>>'><?=$brand_id['brand_name']?></option>
-                <?php endforeach; ?>
-                </select>
-            </div>
+                <label for='brandName'>Enter brand name: </label>
+                <input type='text' id='brandName' name='brandName' value='<?= $brandName['value'] ?>'placeholder="E.g.. Tesla">
             </div> 
             <div>
-                <label for='partNameIn'>Enter part name: </label>
-                <input type='text' id='partNameIn' name='partName' value='<?= $partNameIn['value'] ?>'placeholder="E.g.. Engine">
-            </div> 
-            <div>
-                <label for='descriptionIn'>Enter description: </label>
-                <textarea type='text' id='descriptionIn' name='description' value='<?= $descriptionIn['value'] ?> ' rows="10" cols="20" placeholder="E.g.. THIS IS AN ENGINE." ></textarea>
-            </div>
-            <div>
-                <label for='priceIn'>Enter Price: </label>
-                <input type='number' id='priceIn' name='price' value='<?= $priceIn['value'] ?>' placeholder="E.g.. 10.50">
-            </div>
-
-            <div>
-                <label for='stockIn'>In Stock: </label>
-                <select name='stock' value='<?= $stockIn['value'] ?>'>
+            <select name='brandStatus' value='<?= $brandStatus['value'] ?>'>
                     <option value="">Select...</option>
-                    <?php foreach ($locals['car_brand'] as $brand_id): print_r($brand_id)?>
-                    <option name='stock' value='<?=$brand_id['brand_id']?>>'><?=$brand_id['brand_name']?></option>
-                <?php endforeach; ?>
-                </select>
+                    <option name='brandStatus' value='active'>active></option>
+                    <option name='brandStatus' value='inactive'>inactive></option>
+                </select> 
+                </div>
+            <div>
+                <label for='brandEstablished'>year of establishment: </label>
+                <input type='number' id='brandEstablished' name='brandEstablished' value='<?= $brandEstablished['value'] ?>' placeholder="E.g.. 1050">
+            </div>
+            <div>
+                <label for='parentCompany'>name of parentCompany: </label>
+                <input type='text' id='parentCompany' name='parentCompany' value='<?= $parentCompany['value'] ?>' placeholder="E.g.. GM">
+            </div>
+            <div>
+                <label for='brandNetWorth'>brand Net Worth</label>
+                <input type='number' id='brandNetWorth' name='brandNetWorth' value='<?= $brandNetWorth['value'] ?>' placeholder="E.g.. 105000">
             </div>
             <div>
                 <input type='submit' value='Submit Form'>
