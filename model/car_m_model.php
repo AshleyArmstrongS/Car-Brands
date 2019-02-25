@@ -20,10 +20,9 @@
         $this->fuel_type = $row['fuel_type'];
     }
     
-    public static function return_Brand_Model($db, $args){
-        $statement_Select = 'SELECT * FROM car_model WHERE brand_id = :brand_id;';
+    public static function return_Brand_Model($db, $brand){
+        $statement_Select = "SELECT * FROM car_model WHERE brand_id = $brand";
         $sS = $db->prepare($statement_Select);
-        $sS->bindValue(":brand_id", $args['brand_id']);
         $sS->execute();  
         $array = $sS->fetchALL();
         return $array;
@@ -43,10 +42,9 @@
         ]);  
     }
 
-    public static function delete_Model_M($db, $args){
-        $statement_Delete = "DELETE FROM car_model WHERE model_id=:model_id";
+    public static function delete_Model_M($db, $model){
+        $statement_Delete = "DELETE FROM car_model WHERE model_id=$model";
         $sD = $db->prepare($statement_Delete);
-        $sD->bindValue(":model_id", $args['model_id']);
         $sD->execute();
     }
     public static function delete_Model_B($db, $brand){
