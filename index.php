@@ -13,7 +13,6 @@
   // processed by the controller at controllers/Home.php
   $app->GET('/', 'Home');
   $app->GET('/car_list', 'Car_List');
-  $app->POST('/car_list', 'Car_List_Add');
   $app->GET('/brand_del', 'Car_Del');
   $app->GET('/model_del','Model_Del');
   $app->GET('/brand_add','Brand_Add');
