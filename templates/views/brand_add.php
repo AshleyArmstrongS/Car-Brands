@@ -14,8 +14,8 @@
             <div>
             <select name='brandStatus' value='<?= $brandStatus['value'] ?>'>
                     <option value="">Select...</option>
-                    <option name='brandStatus' value='active'>active></option>
-                    <option name='brandStatus' value='inactive'>inactive></option>
+                    <option name='brandStatus' value='active'>active</option>
+                    <option name='brandStatus' value='inactive'>inactive</option>
                 </select> 
                 </div>
             <div>
