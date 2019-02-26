@@ -20,7 +20,7 @@
   $app->POST('/brand_add','Brand_Add_P');
   $app->GET('/model_add','Model_Add');
   $app->POST('/model_add','Model_Add_P');
-
+  $app->GET('/search_brand','Search_Brand');
   // Process the request
   $app->dispatch();
 // }

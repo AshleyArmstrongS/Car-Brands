@@ -1,14 +1,16 @@
+<div class="topnav">
+    <form action="search_brand">
+<input type='search' id='brandSearch' name='brandSearch' value='<?= $search['value'] ?>' placeholder="Search Brands...">
+<input type='submit' value='Submit Form'>
+</form>
+</div> 
 <section>
     <table>
         <?php
                 echo "<li>Car Brands</li>";
                 foreach ($locals['return_Car'] as $cars){
                     echo "<li><a href='car_list?brand_id=" . $cars['brand_id'] . "'>";
-                    echo $cars['brand_name'], " ";
-                    echo $cars["brand_status"], " ";
-                    echo $cars["brand_establishment"];
-                    echo $cars["parent_company"], " ";
-                    echo $cars["brand_net_worth"];
+                    echo $cars['brand_name'];
                     echo "</a></li> ";
                     ?>
                     <li><a href="brand_del?brand_id=<?=$cars['brand_id']?>">Delete</a></li>  

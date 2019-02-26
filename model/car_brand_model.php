@@ -32,6 +32,14 @@
         ]);  
     }
 
+    public static function find_id_By_name($db,$brand_name){
+        $statement_Select = "SELECT brand_id FROM car_brand WHERE brand_name ='$brand_name'";
+        $sS = $db->prepare($statement_Select);
+        $sS->execute();
+        $brand_id = $sS->fetch();
+        return $brand_id;
+    }
+
     public static function delete_Brand($db, $brand){
         $statement_Delete = "DELETE FROM car_brand WHERE brand_id=$brand";
         $sD = $db->prepare($statement_Delete);
