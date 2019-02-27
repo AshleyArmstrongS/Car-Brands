@@ -2,7 +2,11 @@
     <div class="container2">
         <h2>Add Brand</h2>
         <form action='brand_add' method='post'>
-            
+        <?php if (count($locals['error_messages']) > 0) { ?>
+                <?php foreach ($locals['error_messages'] as $error_message) { ?>
+                    <p class='error'><?= $error_message ?></p>
+                <?php } ?>
+            <?php } ?>
             <div>
                 <label for='brandName'>Enter brand name: </label>
                 <input type='text' id='brandName' name='brandName' value='<?= $brandName['value'] ?>'placeholder="E.g.. Tesla">

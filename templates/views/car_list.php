@@ -8,7 +8,7 @@
     <table>
         <li>Car Brands</li>
             <?php foreach ($locals['return_Car'] as $cars){ ?>
-                <li><a href='car_list?brand_id="<?= $cars['brand_id'] ?>"'>
+                <li><a href='car_list?brand_id=<?= $cars['brand_id'] ?>'>
                 <?= $cars['brand_name']?>
                 </li>
         <?php } ?>
@@ -20,7 +20,7 @@ $brand = $locals['return_By_Id'];
 ?>
     <div class="card">
         <div class="container2">
-            <li>    <h4>Brand name: </h4><?= $brand["brand_name"]; ?> </li>
+            <li>   <h4>Brand name: </h4><?= $brand["brand_name"]; ?> </li>
             <li>   <h4>Brand status: </h4><?= $brand["brand_status"]; ?></li>
             <li>   <h4>Brand Establishment: </h4><?= $brand["brand_establishment"]; ?></li>
             <li>   <h4>Parent Company: </h4><?= $brand["parent_company"]; ?></li>                
@@ -28,7 +28,7 @@ $brand = $locals['return_By_Id'];
             <li>
                 <a href="brand_del?brand_id=<?= $brand['brand_id']?>">Delete</a>
                 <a href="brand_update?brand_id=<?= $brand['brand_id']?>">Update</a>
-            </li>
+            </li>   
         </div>
     </div>
 <?php foreach ($locals['return_Brand_Model'] as $models): ?>
