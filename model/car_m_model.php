@@ -27,6 +27,13 @@
         $array = $sS->fetchALL();
         return $array;
     }
+    public static function return_By_Id($db, $model){
+        $statement_Select = "SELECT * FROM car_model WHERE model_id = $model";
+        $sS = $db->prepare($statement_Select);
+        $sS->execute();  
+        $array = $sS->fetch();
+        return $array;
+    }
 
     public static function add_Model($db,$args){
         $statement_Insert = 'INSERT INTO car_model (brand_id, model_name, year_introduced, year_discontinued, body_type, hybrid, fuel_type) VALUES (:brand_id, :model_name, :year_introduced, :year_discontinued, :body_type, :hybrid, :fuel_type);';
@@ -53,10 +60,9 @@
         $sD->execute();
     }
 
-    public static function update_Model($db, $args){
-        $statement_Update = 'UPDATE car_model SET (brand_id = :brand_id, model_name = :model_name, year_introduced = :year_introduced, year_discontinued = :year_discontinued, body_type = :body_type, hybrid = :hybrid, fuel_type = :fuel_type) WHERE model_id = :model_id;';
+    public static function update_Model($db, $args, $modelId){
+        $statement_Update = "UPDATE car_model SET brand_id = :brand_id, model_name = :model_name, year_introduced = :year_introduced, year_discontinued = :year_discontinued, body_type = :body_type, hybrid = :hybrid, fuel_type = :fuel_type WHERE model_id = $modelId;";
         $sU = $db->prepare($statement_Update);
-        $sU->bindValue(":model_id", $args['model_id']);
         $sU->execute([
             'brand_id' =>$args['brand_id'],
             'model_name'=>$args['model_name'],
