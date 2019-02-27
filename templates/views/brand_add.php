@@ -2,10 +2,7 @@
     <div class="container2">
         <h2>Add Brand</h2>
         <form action='brand_add' method='post'>
-            <?php if (count($form_error_messages) > 0) { ?>
-                <?php foreach ($form_error_messages as $error_message) { ?>
-                    <p class='error'><?= $error_message ?></p>
-                <?php } ?>
+            c
             <?php } ?>
             <div>
                 <label for='brandName'>Enter brand name: </label>

@@ -13,12 +13,24 @@
                     echo $cars['brand_name'];
                     echo "</a></li> ";
                     ?>
-                    <li><a href="brand_del?brand_id=<?=$cars['brand_id']?>">Delete</a></li>  
         <?php } ?>
     </table>
 </section>
 
-
+<?php foreach ($locals['return_By_Id'] as $brand): ?>
+    <div class="card">
+            <div class="container2">
+                <li>    <h4>Brand name: </h4><?= $brand["brand_name"]; ?> </li>
+                <li>   <h4>Brand status: </h4><?= $brand["brand_status"]; ?></li>
+                <li>   <h4>Brand Establishment: </h4><?= $brand["brand_establishment"]; ?></li>
+                <li>   <h4>Parent Company: </h4><?= $brand["parent_comany"]; ?></li>
+                <li>   <h4>Brand Worth: </h4><?= $brand["brand_net_worth"]; ?></li>
+                    <a href="model_del?model_id=<?= $brand['brand_id']?>">Delete</a>
+                    <a href="model_update?model_id=<?= $brand['brand_id']?>">Update</a>
+                </li>
+            </div>
+        </div>
+<?php endforeach; ?>
 <?php foreach ($locals['return_Brand_Model'] as $models): ?>
     <div class="card">
         <div class="container2">
@@ -28,7 +40,10 @@
             <li>   <h4>body type: </h4><?= $models["body_type"]; ?></li>
             <li>   <h4>fueltype: </h4><?= $models["fuel_type"]; ?></li>
             <li>   <h4>hybrid: </h4><?php if($models["hybrid"]){ echo "YES";}else{echo "NO";}; ?></li> 
-            <li><a href="model_del?model_id=<?= $models['model_id']?>">Delete</a></li>
+            <li>
+                <a href="model_del?model_id=<?= $models['model_id']?>">Delete</a>
+                <a href="model_update?model_id=<?= $models['model_id']?>">Update</a>
+            </li>
         </div>
     </div>
 <?php endforeach; ?>

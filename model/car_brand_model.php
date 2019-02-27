@@ -19,6 +19,13 @@
         $array = $sS->fetchALL();
         return $array;
     }
+     public static function return_By_Id($db, $brand_id){
+        $statement_Select = "SELECT * FROM car_brand WHERE brand_id='$brand_id';";
+        $sS = $db->prepare($statement_Select);
+        $sS->execute();  
+        $array= $sS->fetchALL();
+        return $array;
+    }
 
     public static function add_Brand($db, $args){
         $statement_Insert = 'INSERT INTO car_brand (brand_name, brand_status, brand_establishment, parent_company, brand_net_worth) VALUES (:brand_name, :brand_status, :brand_establishment, :parent_company, :brand_net_worth);';
