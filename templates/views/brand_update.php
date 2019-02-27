@@ -13,6 +13,7 @@
                 <select name='brandStatus' value='<?= $brand['brand_status']?>'>
                     <option value=""><?= $brand['brand_status']?></option>
                     <option name='brandStatus' value='inactive'>inactive</option>
+                    <option name='brandStatus' value='active'>active</option>
                 </select> 
             </div>
             <div>

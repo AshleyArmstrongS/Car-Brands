@@ -21,14 +21,21 @@
     }
     
     public static function return_Brand_Model($db, $brand){
-        $statement_Select = "SELECT * FROM car_model WHERE brand_id = $brand";
+        $statement_Select = "SELECT * FROM car_model WHERE brand_id ='$brand'";
         $sS = $db->prepare($statement_Select);
         $sS->execute();  
         $array = $sS->fetchALL();
         return $array;
     }
     public static function return_By_Id($db, $model){
-        $statement_Select = "SELECT * FROM car_model WHERE model_id = $model";
+        $statement_Select = "SELECT * FROM car_model WHERE model_id = '$model'";
+        $sS = $db->prepare($statement_Select);
+        $sS->execute();  
+        $array = $sS->fetch();
+        return $array;
+    }
+    public static function return_By_Model_Name($db, $model){
+        $statement_Select = "SELECT * FROM car_model WHERE model_name = '$model'";
         $sS = $db->prepare($statement_Select);
         $sS->execute();  
         $array = $sS->fetch();

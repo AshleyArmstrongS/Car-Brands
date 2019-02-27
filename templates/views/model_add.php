@@ -47,6 +47,7 @@
                     <option value="">Select...</option>
                     <option name='fuelType' value='P'>Petrol</option>
                     <option name='fuelType' value='D'>Diesel</option>
+                    <option name='fuelType' value='E'>Electric</option>
                     <option name='fuelType' value='G'>Petrol + Diesel</option>
                     <option name='fuelType' value='A'>All fuel types</option>
                 </select>
