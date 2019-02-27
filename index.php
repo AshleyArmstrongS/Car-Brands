@@ -11,15 +11,27 @@
 
   // Define some routes. Here: requests to / will be
   // processed by the controller at controllers/Home.php
+
+  //main views
   $app->GET('/', 'Home');
   $app->GET('/car_list', 'Car_List');
+//deletes
   $app->GET('/brand_del', 'Car_Del');
   $app->GET('/model_del','Model_Del');
+//brand add
   $app->GET('/brand_add','Brand_Add');
   $app->POST('/brand_add','Brand_Add_P');
+//model add
   $app->GET('/model_add','Model_Add');
   $app->POST('/model_add','Model_Add_P');
+//brand, model search
   $app->GET('/search_brand','Search_Brand');
+//brand update
+  $app->GET('/brand_update','Brand_Update');
+  $app->POST('/brand_update','Brand_Update_P');
+//model update
+  $app->GET('/model_update','Model_Update');
+  $app->POST('/model_update','Model_Update_P');
   // Process the request
   $app->dispatch();
 // }

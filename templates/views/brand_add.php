@@ -2,8 +2,7 @@
     <div class="container2">
         <h2>Add Brand</h2>
         <form action='brand_add' method='post'>
-            c
-            <?php } ?>
+            
             <div>
                 <label for='brandName'>Enter brand name: </label>
                 <input type='text' id='brandName' name='brandName' value='<?= $brandName['value'] ?>'placeholder="E.g.. Tesla">

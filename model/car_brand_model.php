@@ -23,7 +23,7 @@
         $statement_Select = "SELECT * FROM car_brand WHERE brand_id='$brand_id';";
         $sS = $db->prepare($statement_Select);
         $sS->execute();  
-        $array= $sS->fetchALL();
+        $array= $sS->fetch();
         return $array;
     }
 
@@ -53,10 +53,9 @@
         $sD->execute();
     }
 
-    public static function update_Brand($db, $args){
-        $statement_Update = 'UPDATE car_brand SET (brand_name = :brand_name, brand_status = :brand_status, brand_establishment = :brand_establishment, parent_company = :parent_company, brand_net_worth = :brand_net_worth) WHERE brand_id = :brand_id;';
+    public static function update_Brand($db, $args, $brandId){
+        $statement_Update = "UPDATE car_brand SET brand_name = :brand_name, brand_status = :brand_status, brand_establishment = :brand_establishment, parent_company = :parent_company, brand_net_worth = :brand_net_worth WHERE brand_id = '$brandId';";
         $sU = $db->prepare($statement_Update);
-        $sU->bindValue(":brand_id", $args['brand_id']);
         $sU->execute([
             'brand_name' =>$args['brand_name'],
             'brand_status'=>$args['brand_status'],

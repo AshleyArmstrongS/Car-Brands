@@ -25,8 +25,8 @@
                 <li>   <h4>Brand Establishment: </h4><?= $brand["brand_establishment"]; ?></li>
                 <li>   <h4>Parent Company: </h4><?= $brand["parent_comany"]; ?></li>
                 <li>   <h4>Brand Worth: </h4><?= $brand["brand_net_worth"]; ?></li>
-                    <a href="model_del?model_id=<?= $brand['brand_id']?>">Delete</a>
-                    <a href="model_update?model_id=<?= $brand['brand_id']?>">Update</a>
+                    <a href="brand_del?brand_id=<?= $brand['brand_id']?>">Delete</a>
+                    <a href="brand_update?brand_id=<?= $brand['brand_id']?>">Update</a>
                 </li>
             </div>
         </div>
