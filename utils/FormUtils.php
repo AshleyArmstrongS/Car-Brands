@@ -45,7 +45,7 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         return $raw_value;
     }
 
-    public static function checkString($index, $allow_empty = false) {
+    public static function checkString($index, $allow_empty) {
         $raw_value = FormUtils::getPostValue($index, FILTER_SANITIZE_STRING, NULL);
         if ($raw_value['is_valid']) {
             $raw_value['value'] = trim($raw_value['value']);
@@ -76,6 +76,22 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         if (!$brandNetWorth['is_valid']) {
             $form_error_messages['brandNetWorth'] = 'A valid brand Net Worth is required';
+        }
+        return $form_error_messages;
+    }
+    public static function getFormErrorMessages($modelName, $yearIntroduced, $yearDiscontinued, $bodyType) {
+        $form_error_messages = [];
+        if (!$modelName['is_valid']) {
+            $form_error_messages['brandName'] = 'model name is required ';
+        }
+        if (!$yearIntroduced['is_valid']) {
+            $form_error_messages['parentCompany'] = 'A valid year Introduced is required';
+        }
+        if (!$yearDiscontinued['is_valid']) {
+            $form_error_messages['brandNetWorth'] = 'A valid year Discontinued is required';
+        }
+        if (!$bodyType['is_valid']) {
+            $form_error_messages['brandNetWorth'] = 'A valid body Type is required';
         }
         return $form_error_messages;
     }

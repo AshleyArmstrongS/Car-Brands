@@ -7,10 +7,10 @@
   require('./model/car_m_model.php'); 
   //requesting values
   $brandId=$req->body('brandId');
-  $modelName = FormUtils::checkString($req->body('modelName'));
-  $yearIntroduced = FormUtils::checkInt($req->body('yearIntroduced'));
-  $yearDiscontinued = FormUtils::checkInt($req->body('yearDiscontinued'));
-  $bodyType = FormUtils::checkString($req->body('bodyType'));
+  $modelName = FormUtils::checkString($req->body('modelName'), FALSE);
+  $yearIntroduced = FormUtils::checkInt($req->body('yearIntroduced'),0);
+  $yearDiscontinued = FormUtils::checkInt($req->body('yearDiscontinued'),0);
+  $bodyType = FormUtils::checkString($req->body('bodyType'), TRUE);
   $hybrid = $req->body('hybrid');
   $fuelType = $req->body('fuelType');
   //error message checking

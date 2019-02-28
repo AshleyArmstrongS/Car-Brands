@@ -8,8 +8,8 @@
   $brandStatus =$req->body('brandStatus');
   $brandEstablished = $req->body('brandEstablished');
 
-  $brandName = FormUtils::checkString($req->body('brandName'));
-  $parentCompany = FormUtils::checkString($req->body('parentCompany'));
+  $brandName = FormUtils::checkString($req->body('brandName'), FALSE);
+  $parentCompany = FormUtils::checkString($req->body('parentCompany'), TRUE);
   $brandNetWorth = FormUtils::checkFloat( $brandNetWorth = $req->body('brandNetWorth'), 0);
   $form_error_messages = FormUtils::getFormErrorMessages($brandName, $parentCompany, $brandNetWorth);
   if (count($form_error_messages) > 0) {
