@@ -66,7 +66,7 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         return $raw_value;
     }
-    public static function getFormErrorMessages($brandName, $brandEstablished, $parentCompany, $brandNetWorth) {
+    public static function getFormErrorMessages($brandName, $parentCompany, $brandNetWorth) {
         $form_error_messages = [];
         if (!$brandName['is_valid']) {
             $form_error_messages['brandName'] = 'Brand name is required ';

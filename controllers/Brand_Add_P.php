@@ -10,7 +10,7 @@
   $brandName = FormUtils::checkString($req->body('brandName'));
   $parentCompany = FormUtils::checkString($req->body('parentCompany'));
   $brandNetWorth = FormUtils::checkFloat( $brandNetWorth = $req->body('brandNetWorth'), 0);
-  $form_error_messages = FormUtils::getFormErrorMessages($brandName, $brandEstablished, $parentCompany, $brandNetWorth);
+  $form_error_messages = FormUtils::getFormErrorMessages($brandName, $parentCompany, $brandNetWorth);
 
   if (count($form_error_messages) > 0) {
       $res->render('/main','brand_update',[
