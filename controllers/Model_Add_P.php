@@ -14,7 +14,7 @@
   $hybrid = $req->body('hybrid');
   $fuelType = $req->body('fuelType');
   //error message checking
-  $form_error_messages = FormUtils::getFormErrorMessages($modelName, $yearIntroduced, $yearDiscontinued, $bodyType);
+  $form_error_messages = FormUtils::getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType);
   //error message read out
   if (count($form_error_messages) > 0) {
       $res->render('/main','brand_update',[

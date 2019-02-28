@@ -79,7 +79,7 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         return $form_error_messages;
     }
-    public static function getFormErrorMessages($modelName, $yearIntroduced, $yearDiscontinued, $bodyType) {
+    public static function getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType) {
         $form_error_messages = [];
         if (!$modelName['is_valid']) {
             $form_error_messages['brandName'] = 'model name is required ';
