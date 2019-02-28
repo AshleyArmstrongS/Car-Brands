@@ -5,9 +5,15 @@
             $brand = $locals['return_By_Id'];
         ?>
         <form action='brand_update' method='POST'>
+        <?php if (count($locals['error_messages']) > 0) { ?>
+                <?php foreach ($locals['error_messages'] as $error_message) { ?>
+                    <p class='error'><?= $error_message ?></p>
+                <?php } ?>
+            <?php } ?>
             <div>
                 <input type='hidden' id='brandId' name='brandId' value=<?= $brand['brand_id'] ?>>
-                <label for='brandName'>Enter brand   name: </label>                    <input type='text' id='brandName' name='brandName' value='<?= $brand['brand_name']?>'>
+                <label for='brandName'>Enter brand   name: </label>                   
+                <input type='text' id='brandName' name='brandName' value='<?= $brand['brand_name']?>'>
             </div> 
             <div>
                 <select name='brandStatus' value='<?= $brand['brand_status']?>'>

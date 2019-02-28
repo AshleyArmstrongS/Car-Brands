@@ -1,25 +1,29 @@
 <?php return function($req, $res) {
-  $car=$req->body('car');
   require('config.php');
   $db = require('./lib/database.php');
   require('./model/car_brand_model.php'); 
+  require_once('utils/FormUtils.php');
 
   $brandId = $req->body('brandId');
-  $brandName =  $req->body('brandName');
-  $brandStatus = $req->body('brandStatus');
+  $brandStatus =$req->body('brandStatus');
   $brandEstablished = $req->body('brandEstablished');
-  $parentCompany = $req->body('parentCompany');
-  $brandNetWorth = $req->body('brandNetWorth');
-    echo($brandId);     
-  echo($brandName);     
 
+  $brandName = FormUtils::checkString($req->body('brandName'));
+  $parentCompany = FormUtils::checkString($req->body('parentCompany'));
+  $brandNetWorth = FormUtils::checkFloat( $brandNetWorth = $req->body('brandNetWorth'), 0);
+  $form_error_messages = FormUtils::getFormErrorMessages($brandName, $brandEstablished, $parentCompany, $brandNetWorth);
+  if (count($form_error_messages) > 0) {
+      $res->render('/main','brand_update',[
+      'error_messages' => $form_error_messages
+    ]);
+  } else {
   car_brand_model::update_Brand($db, [
-    'brand_name' => $brandName,
+    'brand_name' => $brandName['value'],
     'brand_status' => $brandStatus,
     'brand_establishment' => $brandEstablished,
-    'parent_company' => $parentCompany,
-    'brand_net_worth' => $brandNetWorth
+    'parent_company' => $parentCompany['value'],
+    'brand_net_worth' => $brandNetWorth['value']
   ], $brandId);
-  
+}
   $res->redirect('/car_list?update_success=1');
 } ?>

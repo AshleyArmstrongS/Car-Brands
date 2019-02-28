@@ -66,23 +66,10 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         return $raw_value;
     }
-    
-    public static function checkYear($index) {
-        $raw_value = FormUtils::getPostValue($index, FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
-        
-        return $raw_value;
-    }
-
-    public static function getFormErrorMessages($brandName, $brandStatus, $brandEstablished, $parentCompany, $brandNetWorth) {
+    public static function getFormErrorMessages($brandName, $brandEstablished, $parentCompany, $brandNetWorth) {
         $form_error_messages = [];
         if (!$brandName['is_valid']) {
             $form_error_messages['brandName'] = 'Brand name is required ';
-        }
-        if (!$brandStatus['is_valid']) {
-            $form_error_messages['brandStatus'] = 'Brand status must be selected';
-        }
-        if ($brandEstablished['is_valid']) {
-            $form_error_messages['brandEstablished'] = 'brand est. is required.';
         }
         if (!$parentCompany['is_valid']) {
             $form_error_messages['parentCompany'] = 'A valid parent company is required';
