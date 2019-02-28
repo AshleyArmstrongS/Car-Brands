@@ -4,7 +4,8 @@
   $db = require('./lib/database.php');
   //requires
   require_once('utils/FormUtils.php');
-  require('./model/car_m_model.php'); 
+  require('./model/car_m_model.php');
+  require('./model/car_brand_model.php');  
   //requesting values
   $brandId=$req->body('brandId');
   $modelName = FormUtils::checkString($req->body('modelName'), FALSE);
@@ -17,8 +18,10 @@
   $form_error_messages = FormUtils::getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType);
   //error message read out
   if (count($form_error_messages) > 0) {
-      $res->render('/main','brand_update',[
-      'error_messages' => $form_error_messages
+    $brand = car_brand_model::return_Car($db);
+      $res->render('/main','model_add',[
+      'error_messages' => $form_error_messages,
+      'return_Car' => $brand
     ]);
   //if no error do 
   } else {

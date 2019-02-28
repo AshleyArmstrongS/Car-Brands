@@ -7,10 +7,9 @@
  $search=$req->query('brandSearch');   
  $brand_id = car_brand_model::find_id_By_name($db, $search);
  if(empty($brand_id)){
- print_r($brand_id);
     $brand_id = car_m_model::return_By_Model_Name($db, $search);
     if(empty($brand_id)){
-        $brand_id = "NULL";
+       $brand = $brand_id = "No value Present";
     }
     else{
         $brand = $brand_id['brand_id'];

@@ -66,10 +66,19 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         return $raw_value;
     }
+    public static function checkYear($index){
+        $raw_value = FormUtils::getPostValue($index, FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
+        if ($raw_value['is_valid']) {
+            $raw_value['value'] = (int) $raw_value['value'];
+            if ($raw_value['value'] < $min || $raw_value['value'] > $max) {
+                $raw_value['is_valid'] = false;
+            }
+        }
+    }
     public static function getFormErrorMessages($brandName, $parentCompany, $brandNetWorth) {
         $form_error_messages = [];
         if (!$brandName['is_valid']) {
-            $form_error_messages['brandName'] = 'Brand name is required ';
+            $form_error_messages['brandName'] = 'A valid Brand name is required ';
         }
         if (!$parentCompany['is_valid']) {
             $form_error_messages['parentCompany'] = 'A valid parent company is required';
@@ -82,16 +91,16 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
     public static function getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType) {
         $form_error_messages = [];
         if (!$modelName['is_valid']) {
-            $form_error_messages['brandName'] = 'model name is required ';
+            $form_error_messages['modelName'] = 'A valid model name is required ';
         }
         if (!$yearIntroduced['is_valid']) {
-            $form_error_messages['parentCompany'] = 'A valid year Introduced is required';
+            $form_error_messages['yearIntroduced'] = 'A valid year Introduced is required';
         }
         if (!$yearDiscontinued['is_valid']) {
-            $form_error_messages['brandNetWorth'] = 'A valid year Discontinued is required';
+            $form_error_messages['yearDiscontinued'] = 'A valid year Discontinued is required';
         }
         if (!$bodyType['is_valid']) {
-            $form_error_messages['brandNetWorth'] = 'A valid body Type is required';
+            $form_error_messages['bodyType'] = 'A valid body Type is required';
         }
         return $form_error_messages;
     }

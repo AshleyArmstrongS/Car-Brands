@@ -1,12 +1,13 @@
 <div class="topnav">
     <form action="search_brand">
         <input type='search' id='brandSearch' name='brandSearch' value='<?= $search['value'] ?>' placeholder="Search...">
-        <input type='submit' value='Submit Form'>
+        <input type='submit' value='Search'>
     </form>
 </div> 
 <section>
     <table>
         <li>Car Brands</li>
+      
             <?php foreach ($locals['return_Car'] as $cars){ ?>
                 <li><a href='car_list?brand_id=<?= $cars['brand_id'] ?>'>
                 <?= $cars['brand_name']?>
@@ -14,7 +15,7 @@
         <?php } ?>
     </table>
 </section>
-
+<?php if(!empty($locals['return_By_Id'])){?>
 <?php 
 $brand = $locals['return_By_Id'];
 ?>
@@ -39,15 +40,15 @@ $brand = $locals['return_By_Id'];
             <li>   <h4>year discontinued: </h4><?= $models["year_discontinued"]; ?></li>
             <li>   <h4>body type: </h4><?= $models["body_type"]; ?></li>
                    <li> <h4>fueltype:</h4>
-                   <?php if($models["fuelType"] == 'E')
+                   <?php if($models["fuel_type"] === "E")
                      { echo "Electric";}
-                     elseif($models["fuelType"] == 'P')
+                     elseif($models["fuel_type"] === "P")
                      {echo "Petrol";}
-                     elseif($models["fuelType"] == 'D')
+                     elseif($models["fuel_type"] === "D")
                      {echo "Diesel";}
-                     elseif($models["fuelType"] == 'G')
+                     elseif($models["fuel_type"] === "G")
                      {echo "Diesel+Petrol";}
-                     elseif($models["fuelType"] == 'A')
+                     else//($models["fuelType"] === "A")
                         {echo "All fuel types";}
                      ?>
                      </li> 
@@ -58,4 +59,6 @@ $brand = $locals['return_By_Id'];
             </li>
         </div>
     </div>
+          
 <?php endforeach; ?>
+<?php } 

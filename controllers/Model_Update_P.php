@@ -5,6 +5,7 @@
 //requires
   require('./model/car_m_model.php'); 
   require_once('utils/FormUtils.php');
+  require('./model/car_brand_model.php'); 
   //requests
   $modelId = $req->body('modelId');
   $brandId=$req->body('brandId');
@@ -18,8 +19,15 @@
  $form_error_messages = FormUtils::getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType);
  //error message read out
  if (count($form_error_messages) > 0) {
-     $res->render('/main','brand_update',[
-     'error_messages' => $form_error_messages
+    $model = car_m_model::return_By_Id($db,$modelId);
+    $brands = car_brand_model::return_Car($db);
+    $brand_id = $model['brand_id'];
+    $brand = car_brand_model::return_By_Id($db, $brand_id);
+    $res->render('/main','model_update',[
+      'error_messages' => $form_error_messages,
+      'return_Car' => $brands,
+      'return_Brand_Model' => $model,
+      'return_By_Id' => $brand
    ]);
  //if no error do 
  } else {

@@ -13,8 +13,11 @@
   $brandNetWorth = FormUtils::checkFloat( $brandNetWorth = $req->body('brandNetWorth'), 0);
   $form_error_messages = FormUtils::getFormErrorMessages($brandName, $parentCompany, $brandNetWorth);
   if (count($form_error_messages) > 0) {
+  $brand = car_brand_model::return_By_Id($db,$brandId);
+
       $res->render('/main','brand_update',[
-      'error_messages' => $form_error_messages
+      'error_messages' => $form_error_messages,
+      'return_By_Id' => $brand
     ]);
   } else {
   car_brand_model::update_Brand($db, [
@@ -24,6 +27,6 @@
     'parent_company' => $parentCompany['value'],
     'brand_net_worth' => $brandNetWorth['value']
   ], $brandId);
-}
   $res->redirect('/car_list?update_success=1');
+}
 } ?>

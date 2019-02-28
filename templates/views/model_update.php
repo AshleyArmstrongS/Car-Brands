@@ -3,7 +3,7 @@
         <h2>Update Model</h2>
         <form action='model_update' method='POST'>
             <?php if (count($form_error_messages) > 0) { ?>
-                <?php foreach ($form_error_messages as $error_message) { ?>
+                <?php foreach ($locals['error_messages'] as $error_message) { ?>
                     <p class='error'><?= $error_message ?></p>
                 <?php } ?>
             <?php } ?>
