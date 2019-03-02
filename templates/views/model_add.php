@@ -25,7 +25,7 @@
                 <input type='number' id='yearIntroduced' name='yearIntroduced' value='<?= $yearIntroduced['value'] ?> 'placeholder="E.g.. 1980" ></textarea>
             </div>
             <div>
-                <label for='yearDiscontinued'>Enter year discontinued: </label>
+                <label for='yearDiscontinued'>Enter year discontinued, Enter 0000 if not applicable, </label>
                 <input type='number' id='yearDiscontinued' name='yearDiscontinued' value='<?= $yearDiscontinued['value'] ?>' placeholder="E.g.. 2000">
             </div>
             <div>

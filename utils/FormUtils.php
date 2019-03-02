@@ -81,16 +81,13 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         return $form_error_messages;
     }
-    public static function getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType) {
+    public static function getFormErrorMessagesModel($modelName, $yearIntroduced, $bodyType) {
         $form_error_messages = [];
         if (!$modelName['is_valid']) {
             $form_error_messages['modelName'] = 'A valid model name is required ';
         }
         if (!$yearIntroduced['is_valid']) {
             $form_error_messages['yearIntroduced'] = 'A valid year Introduced is required';
-        }
-        if (!$yearDiscontinued['is_valid']) {
-            $form_error_messages['yearDiscontinued'] = 'A valid year Discontinued is required';
         }
         if (!$bodyType['is_valid']) {
             $form_error_messages['bodyType'] = 'A valid body Type is required';

@@ -13,14 +13,14 @@
   $modelId = $req->body('modelId');
   $brandId=$req->body('brandId');
   $modelName = FormUtils::checkString($req->body('modelName'), FALSE);
-  $yearIntroduced = FormUtils::checkYear($req->body('yearIntroduced'),0);
-  $yearDiscontinued = FormUtils::checkYear($req->body('yearDiscontinued'),0);
+  $yearIntroduced = FormUtils::checkYear($req->body('yearIntroduced'));
+  $yearDiscontinued = $req->body('yearDiscontinued');
   $bodyType = FormUtils::checkString($req->body('bodyType'), TRUE);
   $hybrid = $req->body('hybrid');
   $fuelType = $req->body('fuelType');
 
  //error message checking
- $form_error_messages = FormUtils::getFormErrorMessagesModel($modelName, $yearIntroduced, $yearDiscontinued, $bodyType);
+ $form_error_messages = FormUtils::getFormErrorMessagesModel($modelName, $yearIntroduced, $bodyType);
  
  if (count($form_error_messages) > 0) {
     $model = car_m_model::return_By_Id($db,$modelId);
@@ -28,10 +28,10 @@
     $brand_id = $model['brand_id'];
     $brand = car_brand_model::return_By_Id($db, $brand_id);
     $res->render('/main','model_update',[
-      'error_messages' => $form_error_messages,
-      'return_Car' => $brands,
-      'return_Brand_Model' => $model,
-      'return_By_Id' => $brand
+    'error_messages' => $form_error_messages,
+    'return_Car' => $brands,
+    'return_Brand_Model' => $model,
+    'return_By_Id' => $brand
    ]);
  } else {
 
