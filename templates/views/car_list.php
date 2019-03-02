@@ -47,13 +47,25 @@ $brand = $locals['return_By_Id'];
                     <?php }elseif($models["fuel_type"] === "D"){ ?>
                     Diesel
                 <?php }elseif($models["fuel_type"] === "G"){ ?>
-                Diesel+Petrol
-                <?php }elseif($models["fuelType"] === "A"){ ?>
+                    Diesel+Petrol
+                <?php }else{ ?>
                     All fuel types
                 <?php } ?>
             </li> 
             <li>   <h4>hybrid: </h4>
-                <?php if($models["hybrid"]){?>YES<?php}else{ ?>NO<?php } ?>
+                <?php if($models["hybrid"])
+                {
+                    ?>
+                YES
+                <?php
+                }
+                else
+                { 
+                    ?>
+                NO
+                <?php 
+            } 
+            ?>
             </li> 
             <li>
                 <a href="model_del?model_id=<?= $models['model_id']?>">Delete</a>

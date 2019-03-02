@@ -39,7 +39,7 @@
       'brand_id' => $brandId,
       'model_name' => $modelName['value'],
       'year_introduced' => $yearIntroduced['value'],
-      'year_discontinued' => $yearDiscontinued['value'],
+      'year_discontinued' => $yearDiscontinued,
       'body_type' => $bodyType['value'],
       'hybrid' => $hybrid,
       'fuel_type' => $fuelType
