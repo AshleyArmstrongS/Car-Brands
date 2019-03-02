@@ -32,7 +32,7 @@
                 <input type='number' id='yearIntroduced' name='yearIntroduced' value='<?= $model['year_introduced']?>'>
             </div>
             <div>
-                <label for='yearDiscontinued'>Year discontinued: </label>
+                <label for='yearDiscontinued'>Year discontinued, Enter nothing if unapplicable: </label>
                 <input type='number' id='yearDiscontinued' name='yearDiscontinued' value='<?= $model['year_discontinued']?>'>
             </div>
             <div>
