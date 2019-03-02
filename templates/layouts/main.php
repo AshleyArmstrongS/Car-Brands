@@ -17,10 +17,10 @@ $title = 'Car Brand Db';
                 <h1>Car Brands DB</h1>
                 <nav>
                     <ul>
-                        <li><a class='btn external' href='/home'>Home</a></li>
-                        <li><a class='btn external' href='/car_list'>List Brands</a></li>
-                        <li><a class='btn external' href='/brand_add'>Add Brand</a></li>
-                        <li><a class='btn external' href='/model_add'>Add Model</a></li>
+                        <li><a class='btn external' href='home'>Home</a></li>
+                        <li><a class='btn external' href='car_list'>List Brands</a></li>
+                        <li><a class='btn external' href='brand_add'>Add Brand</a></li>
+                        <li><a class='btn external' href='model_add'>Add Model</a></li>
                     </ul>
                 </nav>
             </div>
