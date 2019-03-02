@@ -39,26 +39,27 @@ $brand = $locals['return_By_Id'];
             <li>   <h4>introduction: </h4><?= $models["year_introduced"]; ?></li>
             <li>   <h4>year discontinued: </h4><?= $models["year_discontinued"]; ?></li>
             <li>   <h4>body type: </h4><?= $models["body_type"]; ?></li>
-                   <li> <h4>fueltype:</h4>
-                   <?php if($models["fuel_type"] === "E")
-                     { echo "Electric";}
-                     elseif($models["fuel_type"] === "P")
-                     {echo "Petrol";}
-                     elseif($models["fuel_type"] === "D")
-                     {echo "Diesel";}
-                     elseif($models["fuel_type"] === "G")
-                     {echo "Diesel+Petrol";}
-                     else//($models["fuelType"] === "A")
-                        {echo "All fuel types";}
-                     ?>
-                     </li> 
-            <li>   <h4>hybrid: </h4><?php if($models["hybrid"]){ echo "YES";}else{echo "NO";}; ?></li> 
+                <li> <h4>fueltype:</h4>
+                <?php if($models["fuel_type"] === "E"){ ?>
+                    Electric
+                <?php }elseif($models["fuel_type"] === "P"){ ?>
+                    Petrol
+                    <?php }elseif($models["fuel_type"] === "D"){ ?>
+                    Diesel
+                <?php }elseif($models["fuel_type"] === "G"){ ?>
+                Diesel+Petrol
+                <?php }elseif($models["fuelType"] === "A"){ ?>
+                    All fuel types
+                <?php } ?>
+            </li> 
+            <li>   <h4>hybrid: </h4>
+                <?php if($models["hybrid"]){?>YES<?php}else{ ?>NO<?php } ?>
+            </li> 
             <li>
                 <a href="model_del?model_id=<?= $models['model_id']?>">Delete</a>
                 <a href="model_update?model_id=<?= $models['model_id']?>">Update</a>
             </li>
         </div>
     </div>
-          
 <?php endforeach; ?>
 <?php } 
