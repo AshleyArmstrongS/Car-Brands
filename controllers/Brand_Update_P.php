@@ -28,6 +28,6 @@
     'parent_company' => $parentCompany['value'],
     'brand_net_worth' => $brandNetWorth['value']
   ], $brandId);
-  $res->redirect('/car_list?update_success=1');
+  $res->redirect("/car_list?brand_id=$brandId&success=1");
 }
 } ?>

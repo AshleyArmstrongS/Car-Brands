@@ -42,6 +42,6 @@
     'fuel_type' => $fuelType
   ],$modelId);
   //send back to the listing page
-    $res->redirect('/car_list?update_success=1');
+    $res->redirect("/car_list?brand_id=$brandId&success=1");
  }
 } ?>
