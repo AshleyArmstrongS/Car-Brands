@@ -23,17 +23,6 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         'is_valid' => $is_valid
     ];
 }
-    public static function checkBinary($index, $min = PHP_INT_MIN, $max = PHP_INT_MAX) {
-        $raw_value = FormUtils::getPostValue($index, FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
-        if ($raw_value['is_valid']) {
-            $raw_value['value'] = (int) $raw_value['value'];
-            if ($raw_value['value'] < $min && $raw_value['value'] < $max) {
-                $raw_value['is_valid'] = false;
-            }
-        }
-        return $raw_value;
-    }
-
     public static function checkFloat($index, $min = PHP_FLOAT_MIN) {
         $raw_value = FormUtils::getPostValue($index, FILTER_SANITIZE_NUMBER_FLOAT, NULL);
         if ($raw_value['is_valid']) {
@@ -70,12 +59,13 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         $raw_value = FormUtils::getPostValue($index, FILTER_SANITIZE_NUMBER_INT, FILTER_VALIDATE_INT);
         if ($raw_value['is_valid']) {
             $raw_value['value'] = (int) $raw_value['value'];
-            if ($raw_value['value'] < $min || $raw_value['value'] > $max) {
+            if (!preg_match('/[0-9]{4}/', $raw_value['value'])) {
                 $raw_value['is_valid'] = false;
             }
         }
+        return $raw_value;
     }
-    public static function getFormErrorMessages($brandName, $parentCompany, $brandNetWorth) {
+    public static function getFormErrorMessages($brandName, $parentCompany, $brandNetWorth, $brandEstablished) {
         $form_error_messages = [];
         if (!$brandName['is_valid']) {
             $form_error_messages['brandName'] = 'A valid Brand name is required ';
@@ -85,6 +75,9 @@ public static function getPostValue($index, $sanitize_func, $validate_func) {
         }
         if (!$brandNetWorth['is_valid']) {
             $form_error_messages['brandNetWorth'] = 'A valid brand Net Worth is required';
+        }
+        if (!$brandEstablished['is_valid']) {
+            $form_error_messages['brandEstablished'] = 'A valid brand Established year is required';
         }
         return $form_error_messages;
     }

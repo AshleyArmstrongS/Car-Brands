@@ -10,8 +10,8 @@
   $modelId = $req->body('modelId');
   $brandId=$req->body('brandId');
   $modelName = FormUtils::checkString($req->body('modelName'), FALSE);
-  $yearIntroduced = FormUtils::checkInt($req->body('yearIntroduced'),0);
-  $yearDiscontinued = FormUtils::checkInt($req->body('yearDiscontinued'),0);
+  $yearIntroduced = FormUtils::checkYear($req->body('yearIntroduced'),0);
+  $yearDiscontinued = FormUtils::checkYear($req->body('yearDiscontinued'),0);
   $bodyType = FormUtils::checkString($req->body('bodyType'), TRUE);
   $hybrid = $req->body('hybrid');
   $fuelType = $req->body('fuelType');
