@@ -1,7 +1,7 @@
 <?php
-// try{
+ try{
   $config = require('config.php');
-  define('SITE_BASE_DIR', $config['app_base_url']);
+  define('SITE_BASE_DIR', '/wp_ca3_Armstrong_Ashley');
   
   // Include the Rapid library
   require_once('lib/Rapid.php');
@@ -13,7 +13,7 @@
   // processed by the controller at controllers/Home.php
 
   //main views
-  $app->GET('/', 'Home');
+  $app->GET('/home', 'Home');
   $app->GET('/car_list', 'Car_List');
 //deletes
   $app->GET('/brand_del', 'Car_Del');
@@ -34,17 +34,17 @@
   $app->POST('/model_update','Model_Update_P');
   // Process the request
   $app->dispatch();
-// }
-// catch(\Rapid\RouteNotFoundException $e){
-// $e->getResponseObject()->render('main','404',[]);
-// }
-// catch (PDOException $e) {
-//   $error_message = $e ->getMessage();
-//     include("./templates/views/database_error.php");
-//   exit();
-// }
-// catch(Exception $e){
-//     http_response_code(500);
-//   exit();
-// }
+ }
+ catch(\Rapid\RouteNotFoundException $e){
+ $e->getResponseObject()->render('main','404',[]);
+ }
+ catch (PDOException $e) {
+    $error_message = $e ->getMessage();
+    include("./templates/views/database_error.php");
+   exit();
+ }
+ catch(Exception $e){
+     http_response_code(500);
+   exit();
+}
 ?>
